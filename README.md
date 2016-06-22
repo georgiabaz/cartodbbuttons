@@ -154,11 +154,11 @@ h1 {
 
 8. Now you need to build functions to create the map layers. Start by initiating the leaflet map. You can adjust the GPS coordinates of the centre point (currently set to -1,38) and adjust the zoom of the map (currently set to 7).
 
-```
-<script>
-var map;
-    function init(){
-  // initiate leaflet map
+ ```
+ <script>
+  var map;
+      function init(){
+ // initiate leaflet map
   map = new L.Map('map', { 
     center: [-1,38],
     zoom: 7
@@ -167,7 +167,7 @@ var map;
   L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 }).addTo(map);
-```
+ ```
 
 9. Then insert the link to you cartoDB json
 
