@@ -22,6 +22,7 @@ The buttons filter points based on their category. You need to have your data ta
 2. Now you need to write the css styling. Start with setting the height and width of the map and the size, colour and position of the bottom overlaid band
 
   ```
+  <style>
   /* Set height and width of map */
     #map {width: 100%; height:100%; background: black;}
 
@@ -148,11 +149,13 @@ float: left;
    border: 1px solid rgba(0,0,0,0.2);
     z-index: 1000;
 }
+</style>
 ```
 
 8. Now you need to build functions to create the map layers. Start by initiating the leaflet map. You can adjust the GPS coordinates of the centre point (currently set to -1,38) and adjust the zoom of the map (currently set to 7).
 
 ```
+<script>
 var map;
     function init(){
   // initiate leaflet map
@@ -253,6 +256,7 @@ var map;
     LayerActions[$(this).attr('id')]();
   });
 }  
+</script>
 ```
 
 11. Finally create a function that replaces the content of the infowindow with the content held in the button code
