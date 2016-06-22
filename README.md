@@ -100,47 +100,47 @@ h1 {
 
 6. Now set the colour of each of the map points based on their category. You need to change raw_data_1 for the name of your data table in CartoDB and change the names of each category to the names of your categories.
 
-```
-/* Styling of map points */
-#raw_data_1 {
-   marker-fill-opacity: 0.9;
-   marker-line-color: #FFF;
-   marker-line-width: 1;
-   marker-line-opacity: 1;
-   marker-placement: point;
-   marker-type: ellipse;
-   marker-width: 10;
-   marker-allow-overlap: true;
-}
-#raw_data_1[type="Brookside"] {
-   marker-fill: #A6CEE3;
-}
-#raw_data_1[type="DFCS"] {
-   marker-fill: #FF6600;
-}
-#raw_data_1[type="Githunguri"] {
-   marker-fill: #B2DF8A;
-}
-#raw_data_1[type="KCC"] {
-   marker-fill: #33A02C;
-}
-#raw_data_1[type="Mini-dairy"] {
-   marker-fill: #3B007F;
-}
-#raw_data_1[type="Other processor"] {
-   marker-fill: #3E7BB6;
-}
-#raw_data_1[type="SHG"] {
-   marker-fill: #FDBF6F;
-}
-```
+ ```
+ /* Styling of map points */
+  #raw_data_1 {
+     marker-fill-opacity: 0.9;
+     marker-line-color: #FFF;
+     marker-line-width: 1;
+     marker-line-opacity: 1;
+     marker-placement: point;
+     marker-type: ellipse;
+     marker-width: 10;
+     marker-allow-overlap: true;
+  }
+  #raw_data_1[type="Brookside"] {
+     marker-fill: #A6CEE3;
+  }
+  #raw_data_1[type="DFCS"] {
+     marker-fill: #FF6600;
+  }
+  #raw_data_1[type="Githunguri"] {
+     marker-fill: #B2DF8A;
+  }
+  #raw_data_1[type="KCC"] {
+     marker-fill: #33A02C;
+  }
+  #raw_data_1[type="Mini-dairy"] {
+     marker-fill: #3B007F;
+  }
+  #raw_data_1[type="Other processor"] {
+     marker-fill: #3E7BB6;
+  }
+  #raw_data_1[type="SHG"] {
+     marker-fill: #FDBF6F;
+  }
+ ```
 
 7. Now create a css style for the little circles shown in each of the buttons
 
-```
+ ```
 /* Styling of bullets within buttons */
-.bullet {
-float: left;
+ .bullet {
+  float: left;
     margin: 2px 10px 5px 2px;
     width: 4px;
     height: 4px;
@@ -148,9 +148,9 @@ float: left;
     padding: 2px;
    border: 1px solid rgba(0,0,0,0.2);
     z-index: 1000;
-}
-</style>
-```
+  }
+ </style>
+ ```
 
 8. Now you need to build functions to create the map layers. Start by initiating the leaflet map. You can adjust the GPS coordinates of the centre point (currently set to -1,38) and adjust the zoom of the map (currently set to 7).
 
@@ -171,13 +171,13 @@ var map;
 
 9. Then insert the link to you cartoDB json
 
-```
-  var layerUrl = 'https://georgiabaz.cartodb.com/api/v2/viz/2f7f0d82-104c-11e6-b563-0e98b61680bf/viz.json';
-```
+ ```
+   var layerUrl = 'https://georgiabaz.cartodb.com/api/v2/viz/2f7f0d82-104c-11e6-b563-0e98b61680bf/viz.json';
+ ```
 
 10. Then use this code to create the layers. Make sure you change raw_data_1 for the name of your data table and IsCoop, IsSHG etc. for the names of your columns.
 
-```
+ ```
   var sublayers = [];
 
   cartodb.createLayer(map, layerUrl)
@@ -257,33 +257,32 @@ var map;
   });
 }  
 </script>
-```
+ ```
 
 11. Finally create a function that replaces the content of the infowindow with the content held in the button code
 
-```
+ ```
  <script>
-function ReplaceContentInContainer(id,content) {
-var container = document.getElementById(id);
-container.innerHTML = content;
-}
+  function ReplaceContentInContainer(id,content) {
+    var container = document.getElementById(id);
+    container.innerHTML = content;
+  }
 </script>
-```
+ ```
 
 ## Put all of the following inside the body
 
 1. Load the map and create a container for the map
 
-```
-<body onload="init()">
-
+ ```
+  <body onload="init()">
   <div id='map'></div>
-```
+ ```
 
 2. Now add the map buttons, replace the text about dairy with whatever you want to see in the infowindow when each button is clicked. Replace the text before </a> with the text you want in each button.
 
-```
- <div id="topbutton">
+ ```
+  <div id="topbutton">
       <a href="#all" id="all" class="button all" 
       onclick="ReplaceContentInContainer('infobox',
       ' <h1>THE DAIRY VALUE CHAIN - KENYA</h1>Dairy is the largest agricultural sub-sector in Kenya, at ~4% of GDP and 19% of AgGDP. Approximately 5 billion litres of milk are produced each year with the vast majority (over 80%) produced by small-holder farmers. Around 55% of the milk produced each year is marketed with the rest used for home consumption. Production is growing at approximately 3% per year due to increased organisation in the value chain and growing consumer demand.<h1>HOW TO USE THIS MAP</h1>The diagram to the right shows the flow of milk (in litres) through various actors in the value chain. Click on the buttons on the top right to see these actors on the map.'
@@ -342,8 +341,8 @@ container.innerHTML = content;
 
 3. Create a container for the bottom grey band and the infowindow container. Change the text about dairy to whatever you want the infowindow to say before any buttons are clicked.
 
-```
- <div id="bottomband"></div>
+ ```
+  <div id="bottomband"></div>
 
   <div style="width:50%; height:260px; position:absolute; bottom:0px; left:0px; z-index:20;">
      <div style="width:90%; height: 230px; margin:10 auto;">
@@ -354,14 +353,14 @@ container.innerHTML = content;
      </div>
      </div>
   </div>
-```
+ ```
 
 4. Optional: Add an image at the bottom right like this. In this case I've added a Sankey diagram to show the flow of dairy produce through the value chain.
 
-```
-<div style="width:45%; height:230px; position:absolute; bottom:20px; right:5%; z-index:20;">
+ ```
+  <div style="width:45%; height:230px; position:absolute; bottom:20px; right:5%; z-index:20;">
            <img src="http://acresofdata.com/wp-content/uploads/2016/05/valuechainimagefinal.png" width="100%" height="100%"/>
   </div>
-```
+ ```
 
 That's it!
