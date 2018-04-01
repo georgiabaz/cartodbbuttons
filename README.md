@@ -15,10 +15,8 @@ The buttons filter points based on their category. You need to have your data ta
 1. Start with setting the height and width of the map and the size, colour and position of the bottom overlaid band
 
   ```css
-  /* Set height and width of map */
     #map {width: 100%; height:100%; background: black;}
 
-  /* Set style of bottomband */
     #bottomband {
       width:100%;
       height:260px;
@@ -30,12 +28,7 @@ The buttons filter points based on their category. You need to have your data ta
       z-index:10;
       color:#F5F5F3;
     }
-  ```  
 
-2. Next create the styling for the infobox which is the container for the text at the bottom left
-
-   ```css
-  /* Set style of infobox */
     #infobox {
       color:white;
       float:left;
@@ -45,10 +38,9 @@ The buttons filter points based on their category. You need to have your data ta
     }
   ```
 
-3. Now you need to style the buttons shown in the top right.
+2. Now you need to style the buttons shown in the top right.
 
  ```css
- /* Set style of buttons */  
   #topbutton {position: absolute; top:10px; right: 5px; width: 200px; background: transparent; z-index:10;}
   #topbutton a {
       display:inline-block;
@@ -72,10 +64,9 @@ The buttons filter points based on their category. You need to have your data ta
      background-color:#CDD2D4;
     }
   ```
-4. Then set your font style
+3. Then set your font style
 
  ```css
-   /* Font styling */
 p {
     font-size: 13px;
     font-family: Helvetica;
@@ -90,10 +81,9 @@ h1 {
    }
 ```
 
-5. Now set the colour of each of the map points based on their category. You need to change raw_data_1 for the name of your data table in CartoDB and change the names of each category to the names of your categories.
+4. Now set the colour of each of the map points based on their category. You need to change raw_data_1 for the name of your data table in CartoDB and change the names of each category to the names of your categories.
 
  ```css
- /* Styling of map points */
   #raw_data_1 {
      marker-fill-opacity: 0.9;
      marker-line-color: #FFF;
@@ -127,10 +117,9 @@ h1 {
   }
  ```
 
-6. Now create a css style for the little circles shown in each of the buttons
+5. Now create a css style for the little circles shown in each of the buttons
 
  ```css
-/* Styling of bullets within buttons */
  .bullet {
   float: left;
     margin: 2px 10px 5px 2px;
@@ -143,7 +132,7 @@ h1 {
   }
  ```
 
-7. Now you need to build functions to create the map layers. Start by initiating the leaflet map. You can adjust the GPS coordinates of the centre point (currently set to -1,38) and adjust the zoom of the map (currently set to 7).
+6. Now you need to build functions to create the map layers. Start by initiating the leaflet map. You can adjust the GPS coordinates of the centre point (currently set to -1,38) and adjust the zoom of the map (currently set to 7).
 
  ```js
   var map;
@@ -160,13 +149,13 @@ h1 {
 }).addTo(map);
 ```
 
-8. Then insert the link to your cartoDB json
+7. Then insert the link to your cartoDB json
 
  ```js
    var layerUrl = 'https://georgiabaz.cartodb.com/api/v2/viz/2f7f0d82-104c-11e6-b563-0e98b61680bf/viz.json';
  ```
 
-9. Then use this code to create the layers. Make sure you change raw_data_1 for the name of your data table and IsCoop, IsSHG etc. for the names of your columns.
+8. Then use this code to create the layers. Make sure you change raw_data_1 for the name of your data table and IsCoop, IsSHG etc. for the names of your columns.
 
  ```js
   var sublayers = [];
@@ -249,7 +238,7 @@ h1 {
 }  
  ```
 
-10. Finally create a function that replaces the content of the infowindow with the content held in the button code
+9. Finally create a function that replaces the content of the infowindow with the content held in the button code
 
  ```js
   function ReplaceContentInContainer(id,content) {
