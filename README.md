@@ -22,7 +22,6 @@ The buttons filter points based on their category. You need to have your data ta
 2. Now you need to write the css styling. Start with setting the height and width of the map and the size, colour and position of the bottom overlaid band
 
   ```css
-  <style>
   /* Set height and width of map */
     #map {width: 100%; height:100%; background: black;}
 
